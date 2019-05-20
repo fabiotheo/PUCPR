@@ -1,4 +1,17 @@
 #!/usr/bin/env python
+
+# Utilizando o módulo Raspberry Pi, o relé e o sensor de temperatura/umidade DHT11, o grupo deve implementar um sistema 
+# que atenda a todos os requisitos a seguir:
+# Monitore a temperatura e a umidade.
+# Envie os dois valores recebidos para um servidor de dados IoT na nuvem (thingspeak.com).
+# Dica: para entender como enviar os dados dos sensores para o ThingSpeak, 
+# acesse o material: Internet das Coisas: Raspberry Pi e ThingSpeak.
+# Acione o relé caso ocorra qualquer uma das condições seguintes:
+# Temperatura > 31 °C
+# Umidade relativa do ar > 70%
+# Caso nenhuma das condições esteja presente, o relé deve ser desligado.
+# Observação: utilize a criatividade para alcançar as condições de teste apresentadas. Faz parte da atividade.
+
 import urllib3
 import time
 import Adafruit_DHT as dht
