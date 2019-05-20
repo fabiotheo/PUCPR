@@ -44,3 +44,10 @@ while teste == True:
     print("############################################")
     print("\n")
     time.sleep(20)
+    
+#Nome dos Aunos que participaram desse trabalho:
+#GUSTAVO METZLER PONTES
+#FÁBIO FERNANDES THEODORO
+#RONNIE FELIPE CARVALHO MANCUZO
+#SALOE BISPO POUBEL
+#THIAGO JOAQUIM DOS SANTOS
