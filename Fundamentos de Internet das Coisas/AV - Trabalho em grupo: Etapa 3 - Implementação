@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+import urllib3
+import time
+import Adafruit_DHT as dht
+import RPi.GPIO as gpio
+
+gpio.setmode(gpio.BOARD)
+gpio.setup(7, gpio.OUT)
+
+teste = True
+qtd = 0
+rele=str("0")
+
+while teste == True:
+    qtd = qtd + 1
+
+    umid, temp=dht.read_retry(dht.DHT11, 26)
+
+    print("Teste efetuado número: {}".format(qtd))
+
+    print("A temperatura é: {}".format(temp))
+    print("A Umidade é: {}".format(umid))
+
+    temp_str=str(temp)
+    umid_str=str(umid)
+
+    if float(temp) > 31 and float(umid) > 70:
+        print("Aciona Relé")
+        gpio.output(7, 1)
+        rele="1"
+    else:
+        print("Desliga Relé")
+        gpio.output(7, 0)
+        rele="0"
+
+    url1 = str("https://api.thingspeak.com/update?api_key=NWRY4FZILKGKR2HU&field1=")
+    url2 = str("&field2=")
+    url3 = str("&field3=")
+    caminho = url1 + temp_str + url2 + umid_str + url3 + rele
+
+    urllib3.PoolManager().request('GET', caminho)
+
+
+    print("############################################")
+    print("\n")
+    time.sleep(20)
